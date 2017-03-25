@@ -1,3 +1,16 @@
+/*
+Code snippets to illustrate
+return value optimization (RVO), see
+https://en.wikipedia.org/wiki/Return_value_optimization, and
+copy elision, see
+http://en.cppreference.com/w/cpp/language/copy_elision.
+
+OUTPUT:
+default ctor
+<EOF>
+*/
+
+
 #include <iostream>
 #include <array>
 
@@ -24,15 +37,10 @@ public:
 
 A f() {
   A a;
-  return a;  // return value optimization (RVO), see
-             // https://en.wikipedia.org/wiki/Return_value_optimization
+  return a;  // return value optimization (RVO)
 }
 
 int main() {
-  A a = f();  // copy elision, see
-              // http://en.cppreference.com/w/cpp/language/copy_elision
+  A a = f();  // copy elision
   return 0;
 }
-
-// default ctor
-// EOF
